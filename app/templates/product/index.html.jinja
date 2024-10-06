@@ -1,0 +1,31 @@
+{% extends 'base.html.jinja' %}
+{% block main %}
+<h1>Liste des produits</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Description</th>
+            <th>Prix</th>
+            <th>Stock</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.stock }}</td>
+            <td>
+                <a href="/product/{{ product.id }}/edit">Modifier</a>
+                <a href="/product/{{ product.id }}/delete">Supprimer</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<hr width="100%">
+<a href="{{ url_for('product.create') }}">Ajouter un produit</a>
+{% endblock %}

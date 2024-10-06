@@ -1,0 +1,18 @@
+{% extends 'base.html.jinja' %}
+{% block main %}
+<h1>Modifier un produit</h1>
+<form action="#" method="post" id="product-form">
+    <label for="product_name">Nom</label>
+    <input type="text" name="product_name" value="{{ product.name }}" required>
+    <label for="product_description">Description</label>
+    <input type="text" name="product_description" value="{{ product.description }}" required>
+    <label for="product_price">Prix</label>
+    <input type="number" name="product_price" value="{{ product.price }}" required>
+    <label for="product_stock">Stock</label>
+    <input type="text" name="product_stock" value="{{ product.stock }}" required>
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    <p>
+        <button type="submit" id="edit">Enregistrer</button>
+    </p>
+</form>
+{% endblock %}
